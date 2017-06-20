@@ -1,7 +1,10 @@
 package com.klindziuk.task01.four;
 
-public class Point2D {
+import java.io.Serializable;
 
+public class Point2D implements Serializable{
+
+	private static final long serialVersionUID = 3278563779525623591L;
 	private int x;
 	private int y;
 

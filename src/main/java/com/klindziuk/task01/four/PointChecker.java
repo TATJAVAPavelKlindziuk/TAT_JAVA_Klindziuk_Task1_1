@@ -3,6 +3,9 @@ package com.klindziuk.task01.four;
 public class PointChecker {
 
 	public boolean checkFullLocation(Point2D point) {
+		if(null == point) {
+			throw new IllegalArgumentException("Cannot check locations for \"null\".");
+		}
 		return checkUpperLocation(point) || checkLowerLocation(point);
 	}
 

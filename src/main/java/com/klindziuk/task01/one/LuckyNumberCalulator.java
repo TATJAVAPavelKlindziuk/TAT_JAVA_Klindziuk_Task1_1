@@ -2,13 +2,16 @@ package com.klindziuk.task01.one;
 
 public class LuckyNumberCalulator {
 
-	public boolean isLuckyNumber(int[] arr) {
-		int sum1 = 0;
-		int sum2 = 0;
-		for (int i = 0; i < arr.length / 2; i++) {
-			sum1 = sum1 + arr[i];
-			sum2 = sum2 + arr[arr.length - 1 - i];
+	public boolean isLuckyNumber(int[] array) {
+		if (null == array) {
+			throw new IllegalArgumentException("Cannot calculate lucky number \"null\".");
 		}
-		return (sum1 == sum2);
+		int firstSum = 0;
+		int secondSum = 0;
+		for (int i = 0; i < array.length / 2; i++) {
+			firstSum = firstSum + array[i];
+			secondSum = secondSum + array[array.length - 1 - i];
+		}
+		return (firstSum == secondSum);
 	}
 }
