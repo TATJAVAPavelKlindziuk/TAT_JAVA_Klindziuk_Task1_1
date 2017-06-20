@@ -12,15 +12,14 @@ public class Runner {
 			double b = Double.parseDouble(args[1]);
 			double c = Double.parseDouble(args[2]);
 			RightTriangle.init(a, b, c);
-
+			RightTriangle triangle = RightTriangle.getInstance();
+			Calulator calculator = new Calulator();
+			PrintHelper.print("The square of  is",
+					calculator.calculateTriangleSquare(triangle.getSideA(), triangle.getSideB()));
+			PrintHelper.print("The perimeter of righ triangle is",
+					calculator.calculateTrianglePerimeter(triangle.getSideA(), triangle.getSideB()));
 		} catch (IllegalArgumentException iaex) {
 			PrintHelper.print(iaex.getMessage());
 		}
-		RightTriangle triangle = RightTriangle.getInstance();
-		Calulator calculator = new Calulator();
-		PrintHelper.print("The square of  is",
-				calculator.calculateTriangleSquare(triangle.getSideA(), triangle.getSideB()));
-		PrintHelper.print("The perimeter of righ triangle is",
-				calculator.calculateTrianglePerimeter(triangle.getSideA(), triangle.getSideB()));
 	}
 }

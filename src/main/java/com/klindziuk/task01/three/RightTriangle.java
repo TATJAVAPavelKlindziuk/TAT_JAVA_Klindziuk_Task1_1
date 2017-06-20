@@ -1,6 +1,10 @@
 package com.klindziuk.task01.three;
 
-public class RightTriangle {
+import java.io.Serializable;
+
+public class RightTriangle implements Serializable{
+
+	private static final long serialVersionUID = -5796848172440476947L;
 
 	private static RightTriangle triangle;
 
@@ -19,6 +23,8 @@ public class RightTriangle {
 	public double getSideC() {
 		return sideC;
 	}
+	
+	public RightTriangle() {}
 
 	private RightTriangle(double sideA, double sideB, double sideC) {
 		this.sideA = sideA;
