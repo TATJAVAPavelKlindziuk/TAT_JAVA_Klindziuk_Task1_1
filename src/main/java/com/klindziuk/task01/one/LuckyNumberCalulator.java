@@ -6,6 +6,7 @@ public class LuckyNumberCalulator {
 		if (null == array) {
 			throw new IllegalArgumentException("Cannot calculate lucky number \"null\".");
 		}
+		
 		int firstSum = 0;
 		int secondSum = 0;
 		for (int i = 0; i < array.length / 2; i++) {
