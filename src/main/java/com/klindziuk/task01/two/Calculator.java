@@ -6,8 +6,8 @@ public class Calculator {
 		if (null == args) {
 			throw new IllegalArgumentException("Cannot perform calculation of expression with \"null\".");
 		}
-		if (0 == (args[0])) {
-			throw new IllegalArgumentException("First argument cannot be equal to 0.");
+		if (( 0 == (args[0]) || ( 0 == args[1]) || (0 == args[2]))) {
+			throw new IllegalArgumentException("Arguments cannot be equals to 0.");
 		}
 		double a = args[0];
 		double b = args[1];

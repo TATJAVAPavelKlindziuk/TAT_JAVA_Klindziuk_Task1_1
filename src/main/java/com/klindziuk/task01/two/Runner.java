@@ -9,7 +9,9 @@ public class Runner {
 		try {
 			new TaskTwoArgsChecker().fullArgsCheck(args);
 			double[] numbers = ArrayUtils.convertArrayOfStringsToDouble(args);
+			double [] n = { 1, 2 , 0};
 			PrintHelper.print("The result of the expression is", new Calculator().calculateExpression(numbers));
+			PrintHelper.print("The result of the expression is", new Calculator().calculateExpression(n));
 		} catch (NumberFormatException nfex) {
 			PrintHelper.print("Exception during pasring the arguments.");
 		} catch (IllegalArgumentException ieax) {
