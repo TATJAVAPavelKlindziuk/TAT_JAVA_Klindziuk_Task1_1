@@ -4,15 +4,16 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class Calculator {
+	private static final int REQUIRED_ARGS_LENGTH = 3;
 
 	public Map<Double, Double> calculateFunction(double[] array) {
 		if (null == array) {
 			throw new IllegalArgumentException("Cannot perform calculation of function with \"null\" arguments.");
 		}
-		if (3 > array.length) {
+		if (REQUIRED_ARGS_LENGTH > array.length) {
 			throw new IllegalArgumentException("Cannot perform calculation.Not enough arguments.");
 		}
-		if (3 < array.length) {
+		if (REQUIRED_ARGS_LENGTH < array.length) {
 			throw new IllegalArgumentException("Cannot perform calculation.Too many arguments.");
 		}
 		Map<Double, Double> result = new TreeMap<>();

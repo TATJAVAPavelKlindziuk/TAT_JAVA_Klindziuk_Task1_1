@@ -3,7 +3,8 @@ package com.klindziuk.task01.nine;
 import com.klindziuk.task01.util.PrintHelper;
 
 public class TaskNineArgsChecker {
-
+	
+	private static final int REQUIRED_ARGS_LENGTH = 3;
 	private static final int MAXIMUM_QUANTITY_OF_NUMBERS = 1_000;
 	private static final String REGEXP_PATTERN = "\\d+";
 
@@ -12,11 +13,11 @@ public class TaskNineArgsChecker {
 			PrintHelper.print("You don't input numbers for initializing.Please,try again.");
 			System.exit(-1);
 		}
-		if (3 < args.length) {
+		if (REQUIRED_ARGS_LENGTH < args.length) {
 			PrintHelper.print("You input too many arguments.Only three numbers needed.Please, try again.");
 			System.exit(-1);
 		}
-		if (3 > args.length) {
+		if (REQUIRED_ARGS_LENGTH > args.length) {
 			PrintHelper.print("You input not enough arguments.Three numbers needed.Please, try again.");
 			System.exit(-1);
 		}

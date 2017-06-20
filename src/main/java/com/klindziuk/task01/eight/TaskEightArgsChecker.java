@@ -6,17 +6,19 @@ public class TaskEightArgsChecker {
 
 	private static final int MAXIMUM_QUANTITY_OF_NUMBERS = 1_000_00;
 	private static final String REGEXP_PATTERN = "\\d+";
-
+	private static final int ZERO_ARGS_LENGHT = 0;
+	private static final int REQUIRED_ARGS_LENGTH = 2;
+	
 	private void checkArgumentsSize(String[] args) {
-		if (0 == args.length) {
+		if (ZERO_ARGS_LENGHT == args.length) {
 			PrintHelper.print("You don't input numbers for calculating.Please,try again.");
 			System.exit(-1);
 		}
-		if (2 < args.length) {
+		if (REQUIRED_ARGS_LENGTH < args.length) {
 			PrintHelper.print("You input too many arguments.Only two numbers needed.Please, try again.");
 			System.exit(-1);
 		}
-		if (2 > args.length) {
+		if (REQUIRED_ARGS_LENGTH > args.length) {
 			PrintHelper.print("You input not enough arguments.Two numbers needed.Please, try again.");
 			System.exit(-1);
 		}

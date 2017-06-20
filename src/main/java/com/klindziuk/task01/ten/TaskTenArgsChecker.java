@@ -4,6 +4,7 @@ import com.klindziuk.task01.util.PrintHelper;
 
 public class TaskTenArgsChecker {
 
+	private static final int REQUIRED_ARGS_LENGTH = 1;
 	private static final int MAXIMUM_QUANTITY_OF_NUMBERS = 100_000;
 	private static final String REGEXP_PATTERN = "\\d+";
 
@@ -12,7 +13,7 @@ public class TaskTenArgsChecker {
 			PrintHelper.print("You don't input number for calculating.Please,try again.");
 			System.exit(-1);
 		}
-		if (1 < args.length) {
+		if (REQUIRED_ARGS_LENGTH < args.length) {
 			System.out.println("You input too many arguments.Only one number needed.Please, try again.");
 			System.exit(-1);
 		}

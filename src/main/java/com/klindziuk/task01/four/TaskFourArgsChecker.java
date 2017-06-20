@@ -5,18 +5,20 @@ import com.klindziuk.task01.util.PrintHelper;
 public class TaskFourArgsChecker {
 
 	private static final int MAXIMUM_QUANTITY_OF_NUMBERS = 1_000_00;
+	private static final int ZERO_ARGS_LENGHT = 0;
+	private static final int REQUIRED_ARGS_LENGTH = 2;
 	private static final String REGEXP_PATTERN = "[0-9-]+";
 
 	private void checkArgumentsSize(String[] args) {
-		if (0 == args.length) {
+		if (ZERO_ARGS_LENGHT == args.length) {
 			PrintHelper.print("You don't input coordinates.Please,try again.");
 			System.exit(-1);
 		}
-		if (2 < args.length) {
+		if (REQUIRED_ARGS_LENGTH < args.length) {
 			PrintHelper.print("You input too many arguments.Only two coordinates needed.Please, try again.");
 			System.exit(-1);
 		}
-		if (2 > args.length) {
+		if (REQUIRED_ARGS_LENGTH > args.length) {
 			PrintHelper.print("You input not enough arguments.Two numbers needed.Please, try again.");
 			System.exit(-1);
 		}
