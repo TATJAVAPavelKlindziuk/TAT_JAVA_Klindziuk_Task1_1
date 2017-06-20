@@ -9,6 +9,12 @@ public class Calculator {
 		if (null == array) {
 			throw new IllegalArgumentException("Cannot perform calculation of function with \"null\" arguments.");
 		}
+		if (3 > array.length) {
+			throw new IllegalArgumentException("Cannot perform calculation.Not enough arguments.");
+		}
+		if (3 < array.length) {
+			throw new IllegalArgumentException("Cannot perform calculation.Too many arguments.");
+		}
 		Map<Double, Double> result = new TreeMap<>();
 		double a = array[0];
 		double b = array[1];

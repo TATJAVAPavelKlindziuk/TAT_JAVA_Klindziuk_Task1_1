@@ -33,7 +33,7 @@ public class TaskTwoArgsChecker {
 	}
 
 	private void checkForSpecialSymbols(String[] args) {
-		
+
 		for (String line : args) {
 			if (!line.matches(REGEXP_PATTERN)) {
 				PrintHelper.print("Only numbers allowed.Please try again.");
@@ -42,10 +42,12 @@ public class TaskTwoArgsChecker {
 		}
 	}
 
-	private void checkFirstArgumentForZero(String lineOfNumber) {
-		if ("0".equals(lineOfNumber)) {
-			PrintHelper.print("First argument can't be zero.Please try again.");
-			System.exit(-1);
+	private void checkFirstArgumentForZero(String[] args) {
+		for (String line : args) {
+			if ("0".equals(line)) {
+				PrintHelper.print("Arguments can't be zero.Please try again.");
+				System.exit(-1);
+			}
 		}
 	}
 
@@ -53,6 +55,6 @@ public class TaskTwoArgsChecker {
 		checkArgumentsSize(args);
 		checkMaxQuantityOfSymbols(args);
 		checkForSpecialSymbols(args);
-		checkFirstArgumentForZero(args[0]);
+		checkFirstArgumentForZero(args);
 	}
 }
