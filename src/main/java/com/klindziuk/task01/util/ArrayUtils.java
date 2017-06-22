@@ -41,6 +41,11 @@ public class ArrayUtils {
 				throw new IllegalArgumentException("Cannot perform creation of double  from empty line");
 			}
 		}
+		for (String line : args) {
+			if (!line.matches(REGEXP_PATTERN)) {
+				throw new IllegalArgumentException("Cannot perform creation of array.Line contains restricted symbols");
+			}
+		}
 		int[] result = new int[args.length];
 		for (int i = 0; i < args.length; i++) {
 			result[i] = Integer.parseInt(args[i]);
@@ -55,6 +60,11 @@ public class ArrayUtils {
 		for (String line : args) {
 			if ("".equals(line)) {
 				throw new IllegalArgumentException("Cannot perform creation of int from empty line");
+			}
+		}
+		for (String line : args) {
+			if (!line.matches(REGEXP_PATTERN)) {
+				throw new IllegalArgumentException("Cannot perform creation of array.Line contains restricted symbols");
 			}
 		}
 		double[] result = new double[args.length];
