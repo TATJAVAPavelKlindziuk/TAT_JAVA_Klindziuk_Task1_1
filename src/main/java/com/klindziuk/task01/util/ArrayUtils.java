@@ -1,6 +1,7 @@
 package com.klindziuk.task01.util;
 
 public class ArrayUtils {
+	private static final String REGEXP_PATTERN = "\\d+";
 
 	public static int[] createArrayFromStringLine(String line) {
 		if (null == line) {
@@ -8,6 +9,9 @@ public class ArrayUtils {
 		}
 		if ("".equals(line)) {
 			throw new IllegalArgumentException("Cannot perform creation of array from empty line");
+		}
+		if (!line.matches(REGEXP_PATTERN)){
+			throw new IllegalArgumentException("Cannot perform creation of array.Line contains restricted symbols");	
 		}
 		int[] result = new int[line.length()];
 		for (int i = 0; i < line.length(); i++) {
