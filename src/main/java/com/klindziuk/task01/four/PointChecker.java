@@ -1,30 +1,29 @@
 package com.klindziuk.task01.four;
 
 public class PointChecker {
-	private static final int UPPER_HALF_X_PLUS = -4;
-	private static final int UPPER_HALF_X_MINUS = -4;
-	private static final int UPPER_HALF_Y_PLUS = -3;
-	private static final int UPPER_HALF_Y_MINUS = 0;
-	private static final int LOWER_HALF_X_PLUS = -2;
-	private static final int LOWER_HALF_X_MINUS = 2;
-	private static final int LOWER_HALF_Y_PLUS = 0;
-	private static final int LOWER_HALF_Y_MINUS = 4;
+	
 	private static final String EXCEPTION_MESSAGE = "Cannot check locations for \"null\".";
 
-	public boolean checkFullLocation(Point2D point) {
+	public boolean checkFullLocation(Area2D lower, Area2D upper, Point2D point) {
 		if (null == point) {
 			throw new IllegalArgumentException(EXCEPTION_MESSAGE);
 		}
-		return checkUpperLocation(point) || checkLowerLocation(point);
+		if (null == lower) {
+			throw new IllegalArgumentException(EXCEPTION_MESSAGE);
+		}
+		if (null == upper) {
+			throw new IllegalArgumentException(EXCEPTION_MESSAGE);
+		}
+		return checkUpperLocation(upper, point) || checkLowerLocation(lower,point);
 	}
 
-	private boolean checkUpperLocation(Point2D point) {
-		return (point.getX() >= UPPER_HALF_X_MINUS && point.getX() <= UPPER_HALF_X_PLUS)
-				&& (point.getY() >= UPPER_HALF_Y_MINUS && point.getY() <= UPPER_HALF_Y_PLUS);
+	private boolean checkUpperLocation(Area2D upper, Point2D point) {
+		return (point.getX() >= upper.getX1() && point.getX() <= upper.getX2())
+				&& (point.getY() >= upper.getY1() && point.getY() <= upper.getY2());
 	}
 
-	private boolean checkLowerLocation(Point2D point) {
-		return (point.getX() >= LOWER_HALF_X_MINUS && point.getX() <= LOWER_HALF_X_PLUS)
-				&& (point.getY() >= LOWER_HALF_Y_MINUS && point.getY() <= LOWER_HALF_Y_PLUS);
+	private boolean checkLowerLocation(Area2D lower, Point2D point) {
+		return (point.getX() >= lower.getX1() && point.getX() <= lower.getX2())
+				&& (point.getY() >= lower.getY1() && point.getY() <= lower.getY2());
 	}
 }
