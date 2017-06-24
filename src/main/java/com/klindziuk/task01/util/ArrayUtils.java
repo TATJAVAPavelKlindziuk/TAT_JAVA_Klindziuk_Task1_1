@@ -3,16 +3,22 @@ package com.klindziuk.task01.util;
 public class ArrayUtils {
 	private static final String REGEXP_FOR_INTEGER_PATTERN = "\\d+";
 	private static final String REGEXP_FOR_DOUBLE_PATTERN = "[0-9]+([,.][0-9]{1,2})?";
+	private static final String CREATE_NULL_EXCEPTION_MESSAGE = "Cannot perform creation of array from \"null\"";
+	private static final String EMPTY_LINE_EXCEPTION_MESSAGE = "Cannot perform creation of array from empty line";
+	private static final String RESTRICTED_SYMBOLS_EXCEPTION_MESSAGE = "Cannot perform creation of array.Line contains restricted symbols";
+	private static final String ZERO_SIZE_EXCEPTION_MESSAGE = "Cannot perform creation of array.Size of array should be grater than zero.";
+	private static final String CONVERT_NULL_EXCEPTION_MESSAGE = "Cannot perform convert from \"null\".";
+	private static final String CONVERT_EMPTY_LINE_EXCEPTION_MESSAGE = "Cannot perform convertion from empty line.";
 
 	public static int[] createArrayFromStringLine(String line) {
 		if (null == line) {
-			throw new IllegalArgumentException("Cannot perform creation of array from \"null\"");
+			throw new IllegalArgumentException(CREATE_NULL_EXCEPTION_MESSAGE);
 		}
 		if ("".equals(line)) {
-			throw new IllegalArgumentException("Cannot perform creation of array from empty line");
+			throw new IllegalArgumentException(EMPTY_LINE_EXCEPTION_MESSAGE);
 		}
-		if (!line.matches(REGEXP_FOR_INTEGER_PATTERN)){
-			throw new IllegalArgumentException("Cannot perform creation of array.Line contains restricted symbols");	
+		if (!line.matches(REGEXP_FOR_INTEGER_PATTERN)) {
+			throw new IllegalArgumentException(RESTRICTED_SYMBOLS_EXCEPTION_MESSAGE);
 		}
 		int[] result = new int[line.length()];
 		for (int i = 0; i < line.length(); i++) {
@@ -23,8 +29,7 @@ public class ArrayUtils {
 
 	public static int[] createArrayWithFloatQuantity(int quantityOfElements) {
 		if (0 >= quantityOfElements) {
-			throw new IllegalArgumentException(
-					"Cannot perform creation of array.Size of array should be grater than zero.");
+			throw new IllegalArgumentException(ZERO_SIZE_EXCEPTION_MESSAGE);
 		}
 		int[] result = new int[quantityOfElements];
 		for (int i = 0; i < result.length; i++) {
@@ -35,16 +40,16 @@ public class ArrayUtils {
 
 	public static int[] convertArrayOfStringsToInt(String[] args) {
 		if (null == args) {
-			throw new IllegalArgumentException("Cannot perform convert from \"null\" to int[].");
+			throw new IllegalArgumentException(CONVERT_NULL_EXCEPTION_MESSAGE);
 		}
 		for (String line : args) {
 			if ("".equals(line)) {
-				throw new IllegalArgumentException("Cannot perform creation of double  from empty line");
+				throw new IllegalArgumentException(CONVERT_EMPTY_LINE_EXCEPTION_MESSAGE);
 			}
 		}
 		for (String line : args) {
 			if (!line.matches(REGEXP_FOR_INTEGER_PATTERN)) {
-				throw new IllegalArgumentException("Cannot perform creation of array.Line contains restricted symbols");
+				throw new IllegalArgumentException(RESTRICTED_SYMBOLS_EXCEPTION_MESSAGE);
 			}
 		}
 		int[] result = new int[args.length];
@@ -56,16 +61,16 @@ public class ArrayUtils {
 
 	public static double[] convertArrayOfStringsToDouble(String[] args) {
 		if (null == args) {
-			throw new IllegalArgumentException("Cannot perform convert \"null\" to double[].");
+			throw new IllegalArgumentException(CONVERT_NULL_EXCEPTION_MESSAGE);
 		}
 		for (String line : args) {
 			if ("".equals(line)) {
-				throw new IllegalArgumentException("Cannot perform creation of int from empty line");
+				throw new IllegalArgumentException(CONVERT_EMPTY_LINE_EXCEPTION_MESSAGE);
 			}
 		}
 		for (String line : args) {
 			if (!line.matches(REGEXP_FOR_DOUBLE_PATTERN)) {
-				throw new IllegalArgumentException("Cannot perform creation of array.Line contains restricted symbols");
+				throw new IllegalArgumentException(RESTRICTED_SYMBOLS_EXCEPTION_MESSAGE);
 			}
 		}
 		double[] result = new double[args.length];

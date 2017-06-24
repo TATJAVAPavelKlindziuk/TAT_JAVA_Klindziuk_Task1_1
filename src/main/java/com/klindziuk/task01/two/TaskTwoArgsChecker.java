@@ -7,18 +7,26 @@ public class TaskTwoArgsChecker {
 	private static final int REQUIRED_ARGS_LENGTH = 3;
 	private static final int MAXIMUM_QUANTITY_OF_NUMBERS = 100_000;
 	private static final String REGEXP_PATTERN = "[0-9-]+";
+	private static final String ZERO_ARGS_ERROR_MESSAGE = "You don't input numbers for calculating.Please,try again.";
+	private static final String NULL_ARGS_ERROR_MESSAGE = "Arguments can't be zero.Please try again.";
+	private static final String TOO_MANY_ARGS_ERROR_MESSAGE = "You input too many arguments.Only two numbers needed.Please, try again.";
+	private static final String NOT_ENOUGHT_ARGS_ERROR_MESSAGE = "You input not enough arguments.Two numbers needed.Please, try again.";
+	private static final String RESTRICTED_SYMBOLS_ERROR_MESSAGE = "Only numbers allowed.Please try again.";
+	private static final String QUANTITY_ERROR_MESSAGE = "Quantity of numbers is bigger than "
+			+ MAXIMUM_QUANTITY_OF_NUMBERS + ".Please try again.";
+
 
 	private void checkArgumentsSize(String[] args) {
 		if (0 == args.length) {
-			PrintHelper.print("You don't input number for calculating.Please,try again.");
+			PrintHelper.print(ZERO_ARGS_ERROR_MESSAGE);
 			System.exit(-1);
 		}
 		if (REQUIRED_ARGS_LENGTH < args.length) {
-			PrintHelper.print("You input too many arguments.Only three numbers needed.Please, try again.");
+			PrintHelper.print(TOO_MANY_ARGS_ERROR_MESSAGE);
 			System.exit(-1);
 		}
 		if (REQUIRED_ARGS_LENGTH > args.length) {
-			PrintHelper.print("You input not enough arguments.Three numbers needed.Please, try again.");
+			PrintHelper.print(NOT_ENOUGHT_ARGS_ERROR_MESSAGE);
 			System.exit(-1);
 		}
 	}
@@ -26,8 +34,7 @@ public class TaskTwoArgsChecker {
 	private void checkMaxQuantityOfSymbols(String[] args) {
 		for (String line : args) {
 			if (line.length() > MAXIMUM_QUANTITY_OF_NUMBERS) {
-				PrintHelper.print(
-						"Quantity of numbers is bigger than " + MAXIMUM_QUANTITY_OF_NUMBERS + ".Please try again");
+				PrintHelper.print(QUANTITY_ERROR_MESSAGE);
 				System.exit(-1);
 			}
 		}
@@ -37,7 +44,7 @@ public class TaskTwoArgsChecker {
 
 		for (String line : args) {
 			if (!line.matches(REGEXP_PATTERN)) {
-				PrintHelper.print("Only numbers allowed.Please try again.");
+				PrintHelper.print(RESTRICTED_SYMBOLS_ERROR_MESSAGE);
 				System.exit(-1);
 			}
 		}
@@ -46,7 +53,7 @@ public class TaskTwoArgsChecker {
 	private void checkFirstArgumentForZero(String[] args) {
 		for (String line : args) {
 			if ("0".equals(line)) {
-				PrintHelper.print("Arguments can't be zero.Please try again.");
+				PrintHelper.print(NULL_ARGS_ERROR_MESSAGE);
 				System.exit(-1);
 			}
 		}

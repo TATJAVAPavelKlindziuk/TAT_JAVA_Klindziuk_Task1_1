@@ -5,16 +5,19 @@ import java.util.TreeMap;
 
 public class Calculator {
 	private static final int REQUIRED_ARGS_LENGTH = 3;
+	private static final String NULL_EXCEPTION_MESSAGE = "Cannot perform calculation of function with \"null\" arguments.";
+	private static final String TOO_MANY_ARGS_EXCEPTION_MESSAGE = "Cannot perform calculation.Too many arguments.";
+	private static final String NOT_ENOUGH_EXCEPTION_MESSAGE = "Cannot perform calculation.Not enough arguments.";
 
 	public Map<Double, Double> calculateFunction(double[] array) {
 		if (null == array) {
-			throw new IllegalArgumentException("Cannot perform calculation of function with \"null\" arguments.");
+			throw new IllegalArgumentException(NULL_EXCEPTION_MESSAGE);
 		}
 		if (REQUIRED_ARGS_LENGTH > array.length) {
-			throw new IllegalArgumentException("Cannot perform calculation.Not enough arguments.");
+			throw new IllegalArgumentException(NOT_ENOUGH_EXCEPTION_MESSAGE);
 		}
 		if (REQUIRED_ARGS_LENGTH < array.length) {
-			throw new IllegalArgumentException("Cannot perform calculation.Too many arguments.");
+			throw new IllegalArgumentException(TOO_MANY_ARGS_EXCEPTION_MESSAGE);
 		}
 		Map<Double, Double> result = new TreeMap<>();
 		double a = array[0];

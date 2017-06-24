@@ -3,9 +3,8 @@ package com.klindziuk.task01.three;
 import java.io.Serializable;
 
 public class RightTriangle implements Serializable{
-
+	private static final String INIT_EXCEPTION_MESSAGE = "Unfortunately we can't create RIGH triangle with this sides.Please try again.";
 	private static final long serialVersionUID = -5796848172440476947L;
-
 	private static RightTriangle triangle;
 
 	private double sideA;
@@ -37,7 +36,7 @@ public class RightTriangle implements Serializable{
 		if ((SideChecker.checkSides(sideA, sideB, sideC) && SideChecker.isRightTriangle(sideA, sideB, sideC))) {
 			triangle = new RightTriangle(sideA, sideB, sideC);
 		} else
-			throw new IllegalArgumentException("Unfortunately we can't create RIGH triangle with this sides.Please try again.");
+			throw new IllegalArgumentException(INIT_EXCEPTION_MESSAGE);
 	}
 
 	public static RightTriangle getInstance() {

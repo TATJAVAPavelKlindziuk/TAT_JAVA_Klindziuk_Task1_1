@@ -28,10 +28,10 @@ public class PrintHelper {
 	public static void print(String message, String[] result) {
 		System.out.println(message + " : " + Arrays.toString(result));
 	}
-	
-	public static void print(Map<Double,Double> map) {
+
+	public static void print(Map<Double, Double> map) {
 		for (Map.Entry<Double, Double> entry : map.entrySet()) {
-		    System.out.println(entry.getKey()+ " : " +entry.getValue());
+			System.out.println(entry.getKey() + " : " + entry.getValue());
 		}
 	}
 

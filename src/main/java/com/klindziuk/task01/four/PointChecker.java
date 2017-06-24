@@ -9,10 +9,11 @@ public class PointChecker {
 	private static final int LOWER_HALF_X_MINUS = 2;
 	private static final int LOWER_HALF_Y_PLUS = 0;
 	private static final int LOWER_HALF_Y_MINUS = 4;
+	private static final String EXCEPTION_MESSAGE = "Cannot check locations for \"null\".";
 
 	public boolean checkFullLocation(Point2D point) {
 		if (null == point) {
-			throw new IllegalArgumentException("Cannot check locations for \"null\".");
+			throw new IllegalArgumentException(EXCEPTION_MESSAGE);
 		}
 		return checkUpperLocation(point) || checkLowerLocation(point);
 	}
