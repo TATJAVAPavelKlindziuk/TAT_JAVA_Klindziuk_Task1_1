@@ -22,7 +22,7 @@ public class ArrayUtils {
 	}
 
 	public static int[] createArrayWithFloatQuantity(int quantityOfElements) {
-		if (0 > quantityOfElements) {
+		if (0 >= quantityOfElements) {
 			throw new IllegalArgumentException(
 					"Cannot perform creation of array.Size of array should be grater than zero.");
 		}

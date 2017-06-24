@@ -4,7 +4,7 @@ public class Matrix {
 	private static final int RATIO_NUMBER = 2;
 
 	public int[][] initializeMatrix(int order) {
-		if (0 > order) {
+		if (0 >= order) {
 			throw new IllegalArgumentException("Cannot perform matrix initialization.Order of matrix should be grater than zero.");
 		}
 		int[][] matrix = new int[order][order];
