@@ -1,7 +1,8 @@
 package com.klindziuk.task01.util;
 
 public class ArrayUtils {
-	private static final String REGEXP_PATTERN = "\\d+";
+	private static final String REGEXP_FOR_INTEGER_PATTERN = "\\d+";
+	private static final String REGEXP_FOR_DOUBLE_PATTERN = "[0-9]+([,.][0-9]{1,2})?";
 
 	public static int[] createArrayFromStringLine(String line) {
 		if (null == line) {
@@ -10,7 +11,7 @@ public class ArrayUtils {
 		if ("".equals(line)) {
 			throw new IllegalArgumentException("Cannot perform creation of array from empty line");
 		}
-		if (!line.matches(REGEXP_PATTERN)){
+		if (!line.matches(REGEXP_FOR_INTEGER_PATTERN)){
 			throw new IllegalArgumentException("Cannot perform creation of array.Line contains restricted symbols");	
 		}
 		int[] result = new int[line.length()];
@@ -42,7 +43,7 @@ public class ArrayUtils {
 			}
 		}
 		for (String line : args) {
-			if (!line.matches(REGEXP_PATTERN)) {
+			if (!line.matches(REGEXP_FOR_INTEGER_PATTERN)) {
 				throw new IllegalArgumentException("Cannot perform creation of array.Line contains restricted symbols");
 			}
 		}
@@ -63,7 +64,7 @@ public class ArrayUtils {
 			}
 		}
 		for (String line : args) {
-			if (!line.matches(REGEXP_PATTERN)) {
+			if (!line.matches(REGEXP_FOR_DOUBLE_PATTERN)) {
 				throw new IllegalArgumentException("Cannot perform creation of array.Line contains restricted symbols");
 			}
 		}

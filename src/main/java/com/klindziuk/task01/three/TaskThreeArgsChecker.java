@@ -6,7 +6,7 @@ public class TaskThreeArgsChecker {
 
 	private static final int REQUIRED_ARGS_LENGTH = 3;
 	private static final int MAXIMUM_QUANTITY_OF_NUMBERS = 1_000;
-	private static final String REGEXP_PATTERN = "\\d+";
+	private static final String REGEXP_PATTERN = "[0-9]+([,.][0-9]{1,2})?";
 
 	private void checkArgumentsSize(String[] args) {
 		if (0 == args.length) {
