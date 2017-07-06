@@ -1,5 +1,5 @@
 package com.klindziuk.task01.eight;
-
+   
 public class Calculator {
 	private static final String NULL_EXCEPTION_MESSAGE = "Cannot perform calculating with \"null\".";
 	private static final String ZERO_DIVIDE_EXCEPTION_MESSAGE = "Cannot divide by zero.";
