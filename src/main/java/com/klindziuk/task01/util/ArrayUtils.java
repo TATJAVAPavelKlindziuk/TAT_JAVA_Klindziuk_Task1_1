@@ -1,14 +1,16 @@
 package com.klindziuk.task01.util;
 
-public class ArrayUtils {
-	private static final String REGEXP_FOR_INTEGER_PATTERN = "\\d+";
-	private static final String REGEXP_FOR_DOUBLE_PATTERN = "[0-9]+([,.][0-9]{1,2})?";
+public final class ArrayUtils {
+	private static final String REGEXP_FOR_INTEGER_PATTERN = "[0-9-]+";
+	private static final String REGEXP_FOR_DOUBLE_PATTERN = "^(?=.)([+-]?([0-9]*)(\\.([0-9]+))?)$";
 	private static final String CREATE_NULL_EXCEPTION_MESSAGE = "Cannot perform creation of array from \"null\"";
 	private static final String EMPTY_LINE_EXCEPTION_MESSAGE = "Cannot perform creation of array from empty line";
 	private static final String RESTRICTED_SYMBOLS_EXCEPTION_MESSAGE = "Cannot perform creation of array.Line contains restricted symbols";
 	private static final String ZERO_SIZE_EXCEPTION_MESSAGE = "Cannot perform creation of array.Size of array should be grater than zero.";
 	private static final String CONVERT_NULL_EXCEPTION_MESSAGE = "Cannot perform convert from \"null\".";
 	private static final String CONVERT_EMPTY_LINE_EXCEPTION_MESSAGE = "Cannot perform convertion from empty line.";
+
+	private ArrayUtils() { }
 
 	public static int[] createArrayFromStringLine(String line) {
 		if (null == line) {

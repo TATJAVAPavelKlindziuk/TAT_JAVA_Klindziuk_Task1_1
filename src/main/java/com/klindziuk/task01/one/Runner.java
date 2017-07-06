@@ -4,12 +4,13 @@ import com.klindziuk.task01.util.ArrayUtils;
 import com.klindziuk.task01.util.PrintHelper;
 
 public class Runner {
+	private static final String LUCKY_NUMBER_MESSAGE = " Is lucky number ?";
 
 	public static void main(String[] args) {
+		new TaskOneArgsChecker().fullArgsCheck(args);
 		try {
-			new TaskOneArgsChecker().fullArgsCheck(args);
 			int[] array = ArrayUtils.createArrayFromStringLine(args[0]);
-			PrintHelper.print("Is the number " + args[0] + " lucky?", new LuckyNumberCalulator().isLuckyNumber(array));
+			PrintHelper.print(args[0] + LUCKY_NUMBER_MESSAGE, new LuckyNumberCalulator().isLuckyNumber(array));
 		} catch (IllegalArgumentException ieax) {
 			PrintHelper.print(ieax.getMessage());
 		}

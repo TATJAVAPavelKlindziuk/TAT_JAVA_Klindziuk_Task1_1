@@ -3,7 +3,9 @@ package com.klindziuk.task01.util;
 import java.util.Arrays;
 import java.util.Map;
 
-public class PrintHelper {
+public final class PrintHelper {
+	
+	private PrintHelper() {}
 
 	public static void print(String message) {
 		System.out.println(message);
