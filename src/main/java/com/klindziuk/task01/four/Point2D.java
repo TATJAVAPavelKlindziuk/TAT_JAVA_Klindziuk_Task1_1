@@ -45,4 +45,10 @@ public class Point2D implements Serializable{
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "Point2D [x=" + x + ", y=" + y + "]";
+	}
+	
 }
